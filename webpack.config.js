@@ -3,21 +3,15 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-
-// const HappyPack = require('happypack');
-// const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
-// 构造出共享进程池，进程池中包含5个子进程
-// const happyThreadPool = HappyPack.ThreadPool({ size: 5 });
-
 const NODE_ENV = process.env.NODE_ENV || 'production';
 const _DEV_ = NODE_ENV === 'development';
 const config = {
   mode: 'none',
-  entry: [
+  entry: _DEV_ ? [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.js'
-  ],
+  ] : './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: _DEV_ ? '/' : process.env.STATIC,
@@ -103,7 +97,6 @@ if (_DEV_) {
   };
   config.plugins.push(new NamedModulesPlugin());
 } else {
-  config.devtool = 'hidden-source-map';
   config.plugins.push(new MiniCssExtractPlugin({
     filename: 'css/[name].[hash].css',
     chunkFilename: 'css/[id].[hash].css',

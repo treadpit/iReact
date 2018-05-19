@@ -5,15 +5,15 @@ const routes = [
     path: '/',
     exact: true,
     component(props) {
+      return createLoadableComp('pages/test');
+    },
+  },
+  {
+    path: '/dialog',
+    component(props) {
       return createLoadableComp('components/dialog');
     },
   },
-  // {
-  //   path: '/Articles',
-  //   component(props) {
-  //     return createLoadableComp('pages/articles');
-  //   },
-  // },
 ];
 
 export default routes;

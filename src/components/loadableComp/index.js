@@ -1,14 +1,17 @@
 
 import React from 'react';
 import Loadable from 'react-loadable';
+import Loading from '../loading';
+import LoadError from '../loadError';
+import LoadTimeout from '../loadTimeout';
 
-function Loading(props) {
+function LoadingFn(props) {
   if (props.error) {
-    return <div>Error! <button onClick={ props.retry }>Retry</button></div>;
+    return <LoadError />;
   } else if (props.timedOut) {
-    return <div>Taking a long time... <button onClick={ props.retry }>Retry</button></div>;
+    return <LoadTimeout />;
   } else if (props.pastDelay) {
-    return <div>Loading...</div>;
+    return <Loading />;
   } else {
     return null;
   }
@@ -20,7 +23,7 @@ export default path => {
     const compName = path.replace(/(.*\/)?components\/(.*)/, '$2');
     Comp = Loadable({
       loader: () => import(`../${compName}`), // import不能传直接传变量，只能写死字符串
-      loading: Loading,
+      loading: LoadingFn,
     });
   } else if (/pages/.test(path)) {
     const compName = path.replace(/(.*\/)?pages\/(.*)/, '$2');
@@ -28,7 +31,7 @@ export default path => {
       loader: () => import(`../../pages/${compName}`),
       loading: Loading,
       delay: 300, // 0.3 seconds
-      timeout: 8000, // 8 seconds
+      timeout: 10000, // 10 seconds
     });
   }
   return <Comp />;

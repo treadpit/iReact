@@ -4,12 +4,11 @@ import { Router } from 'react-router-dom';
 import history from './lib/history';
 
 import App from './pages/app';
+import './components/globalStyle/global.scss';
 
 ReactDOM.render(
-  // <Provider store={store}>
   <Router history={history}>
     <App />
   </Router>,
-  // </Provider>,
   document.getElementById('app')
 );
