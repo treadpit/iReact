@@ -8,5 +8,4 @@ export default history;
 export const unlisten = history.listen((location, action) => {
   // parse query string
   location.query = parseQuery(location.search);
-  console.log('location======:', location);
 });

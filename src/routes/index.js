@@ -8,18 +8,12 @@ const routes = [
       return createLoadableComp('components/dialog');
     },
   },
-  {
-    path: '/Articles',
-    component(props) {
-      return createLoadableComp('pages/articles');
-    },
-  },
-  {
-    path: '/Dialog',
-    component(props) {
-      return createLoadableComp('components/dialog');
-    },
-  },
+  // {
+  //   path: '/Articles',
+  //   component(props) {
+  //     return createLoadableComp('pages/articles');
+  //   },
+  // },
 ];
 
 export default routes;

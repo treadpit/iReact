@@ -28,8 +28,8 @@ export function parseQuery(param) {
  * @export
  */
 export function openDebug() {
-  const parameter = queryString2Obj(window.location).jmdebug;
-  if (parameter && parameter === 'true') {
+  const parameter = parseQuery(window.location).d;
+  if (parameter && +parameter === 1) {
     loadScript('//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js', () => {
       /* eslint-disable */
       const vConsole = new VConsole();
