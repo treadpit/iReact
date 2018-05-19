@@ -1,0 +1,35 @@
+{
+  "root": true,
+  "env": {
+      "browser": true,
+      "es6": true,
+      "commonjs": true
+  },
+  "extends": ["standard", "plugin:react/recommended"],
+  "parserOptions": {
+      "ecmaFeatures": {
+          "experimentalObjectRestSpread": true,
+          "jsx": true,
+          "arrowFunctions": true,
+          "classes": true,
+          "modules": true,
+          "defaultParams": true
+      },
+      "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+      "react"
+  ],
+  "rules": {
+    "semi": [2, "always", { "omitLastInOneLineBlock": true }],
+    "comma-dangle": [2, "only-multiline"],
+    "space-before-function-paren": [2, "never"],
+    "prefer-promise-reject-errors": 0,
+    "arrow-parens": 0,
+    "generator-star-spacing": 0,
+    "react/prop-types": 0,
+    "react/no-deprecated": 1,
+    "no-console": 1
+  }
+}
