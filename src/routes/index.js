@@ -1,18 +1,14 @@
-import createLoadableComp from '../components/loadableComp';
+import createAysncComp from '../components/aysncComp';
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component(props) {
-      return createLoadableComp('pages/test');
-    },
+    component: createAysncComp('pages/test'),
   },
   {
     path: '/dialog',
-    component(props) {
-      return createLoadableComp('components/dialog');
-    },
+    component: createAysncComp('components/dialog'),
   },
 ];
 

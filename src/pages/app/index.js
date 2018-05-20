@@ -1,7 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
-import createLoadableComp from '../../components/loadableComp';
+import createLoadableComp from '../../components/aysncComp';
 import './index.scss';
 
 import routes from '../../routes';
@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <Switch>
         {routes.map((route, i) => <Route key={i} exact={!!route.exact} path={route.path} component={route.component} />)}
-        <Route render={() => createLoadableComp('pages/404')} />
+        <Route component={ createLoadableComp('pages/404') } />
       </Switch>
     );
   }

@@ -2,22 +2,20 @@
 
 #### 1、路由配置
 
-约定组件统一放在 `components` 或者 `pages`文件夹下， 通过 `createLoadableComp` 函数传入组件路径，路径以 `components` 或者 `pages` 开头，如下例所示：
+约定组件统一放在 `components` 或者 `pages`文件夹下， 通过 `createAysncComp` 函数传入组件路径，路径以 `components` 或者 `pages` 开头，如下例所示：
 
 ```js
+import createAysncComp from '../components/aysncComp';
+
 const routes = [
   {
     path: '/',
     exact: true,
-    component(props) {
-      return createLoadableComp('components/dialog');
-    },
+    component: createAysncComp('pages/test'),
   },
   {
-    path: '/Articles',
-    component(props) {
-      return createLoadableComp('pages/articles');
-    },
+    path: '/dialog',
+    component: createAysncComp('components/dialog'),
   },
 ];
 ```
@@ -29,7 +27,7 @@ const routes = [
 a. 直接引入 `lib` 下 `history` 文件, `history` 包含的 `API` 查阅 [npm history 库]。(https://www.npmjs.com/package/history)
 
 ```js
-import history from '../libt/history';
+import history from '../lib/history';
 
 history.push('/');
 
