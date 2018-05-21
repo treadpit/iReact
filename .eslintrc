@@ -31,5 +31,11 @@
     "react/prop-types": 0,
     "react/no-deprecated": 1,
     "no-console": 1
+  },
+  "globals": {
+    "wx": true,
+    "AlipayJSBridge": false,
+    "ap": true,
+    "my": true
   }
 }
