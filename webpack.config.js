@@ -97,6 +97,9 @@ if (_DEV_) {
   };
   config.plugins.push(new NamedModulesPlugin());
 } else {
+  config.plugins.push(new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }));
   config.plugins.push(new MiniCssExtractPlugin({
     filename: 'css/[name].[hash].css',
     chunkFilename: 'css/[id].[hash].css',
