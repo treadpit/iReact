@@ -7,7 +7,8 @@ addons:
     - 67.218.157.70:27344
 script:
   - npm run lint
-  - rsync -az -vv --delete -e 'ssh -p 27344' ./** root@67.218.157.70:/usr/work/ireact
+after_success:
+  - rsync -az -vv --delete --progress -e 'ssh -p 27344' src/ root@67.218.157.70:27344:/usr/work/ireact
 cache:
   directories:
   - node_modules
