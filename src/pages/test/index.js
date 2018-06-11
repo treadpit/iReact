@@ -6,6 +6,6 @@ export default class Topic extends React.Component {
     history.push('/dialog');
   }
   render() {
-    return <h3 className="color" onClick={this.goto}>click me !!! test home page</h3>;
+    return <h3 className="color" onClick={this.goto}>click me !!!</h3>;
   }
 }
