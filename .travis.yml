@@ -8,7 +8,7 @@ addons:
 script:
   - npm run lint
 after_success:
-  - rsync -az -vv --delete --progress -e 'ssh -p 27344' src/ root@67.218.157.70:27344:/usr/work/ireact
+  - rsync -az -vv --delete --progress -e 'ssh -p 27344' src/ root@67.218.157.70:/usr/work/ireact
 cache:
   directories:
   - node_modules
