@@ -22,7 +22,7 @@ export default path => {
   if (/components/.test(path)) {
     const compName = path.replace(/(.*\/)?components\/(.*)/, '$2');
     Comp = Loadable({
-      loader: () => import(`../${compName}`), // import不能传直接传变量，只能写死字符串
+      loader: () => import(`../${compName}`),
       loading: LoadingFn,
     });
   } else if (/pages/.test(path)) {

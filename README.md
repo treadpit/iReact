@@ -2,7 +2,7 @@
 
 #### 1、路由配置
 
-约定组件统一放在 `components` 或者 `pages`文件夹下， 通过 `createLoadableComp` 函数传入组件路径，路径以 `components` 或者 `pages` 开头，如下例所示：
+约定组件统一放在 `components`，页面放在 `pages`文件夹下， 通过 `createLoadableComp` 函数传入组件路径，路径以 `components` 或者 `pages` 开头，如下例所示：
 
 ```js
 import createLoadableComp from '../components/loadableComp';
@@ -38,7 +38,7 @@ history.push('/');
 history.replace('/');
 ```
 
-b. 租借内部的 `props` 包含 `history` 对象，使用方法同上。
+b. 组件内部的 `props` 包含 `history` 对象，使用方法同上。
 
 ```js
 const { history } = this.props;
