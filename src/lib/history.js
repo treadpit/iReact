@@ -1,7 +1,7 @@
-import CreateHistory from 'history/createBrowserHistory';
-import { parseQuery } from '../utils';
+import { createHashHistory } from 'history';
+import { parseQuery } from '@/utils';
 
-const history = CreateHistory();
+const history = createHashHistory();
 
 export default history;
 

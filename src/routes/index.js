@@ -1,4 +1,4 @@
-import createLoadableComp from '../components/loadableComp';
+import createLoadableComp from '@/components/loadableComp';
 
 const routes = [
   {

@@ -1,7 +1,12 @@
 import React from 'react';
-import history from '../../lib/history';
+import { connect } from 'react-redux';
+import history from '@/lib/history';
+import { userInfo } from '@/actions';
 
-export default class Topic extends React.Component {
+class Topic extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(userInfo(1212));
+  }
   goto() {
     history.push('/dialog');
   }
@@ -9,3 +14,11 @@ export default class Topic extends React.Component {
     return <h3 className="color" onClick={this.goto}>click me !!! test home page</h3>;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    userInfo: state.userInfo
+  };
+}
+
+export default connect(mapStateToProps)(Topic);

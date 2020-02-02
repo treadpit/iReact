@@ -36,8 +36,7 @@ export function isAliApp() {
  */
 export function isEmptyObject(o) {
   if (typeof o !== 'object') {
-    console.error('isEmptyObject 的参数必须为对象');
-    return;
+    return false;
   }
   for (let i in o) {
     return false;
@@ -180,4 +179,49 @@ export function countDownFormat(countTime, millisecond) {
     return `${d}${h}:${m}:${s}`;
   }
   return `${h}:${m}:${s}`;
+}
+
+/**
+ * url 字符串转对象
+ * @param {string} param window.loaction对象或者url字符串
+ * @returns
+ */
+export function query2Obj(param) {
+  const pattern = /([^?&=]+)=([^&#]*)/g;
+  const dict = {};
+  let search = null;
+  if (typeof param === 'object' && param instanceof Location) {
+    search = param.search;
+  } else if (typeof param === 'string') {
+    search = param;
+  } else {
+    throw new Error('参数类型非法！请传入window.loaction对象或者url字符串。');
+  }
+  search.replace(pattern, (rs, $1, $2) => {
+    const key = decodeURIComponent($1);
+    const value = decodeURIComponent($2);
+    dict[key] = value;
+    return rs;
+  });
+  return dict;
+}
+
+/**
+ * 对象转为 query 字符串
+ * @param {object} obj
+ */
+export function obj2String(obj) {
+  if (Object.prototype.toString.call(obj) !== '[object Object]') {
+    console.warn('obj2String 方法参数类型必须为 object');
+    return '';
+  }
+  let str = '';
+  for (let k in obj) {
+    if (typeof obj[ k ] !== 'object') {
+      str += `${k}=${obj[ k ]}&`;
+    } else if (Object.prototype.toString.call(obj) !== '[object Array]') {
+      str += `${k}=${JSON.stringify(obj[ k ])}&`;
+    }
+  }
+  return str.replace(/&$/, '');
 }
