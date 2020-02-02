@@ -1,8 +1,6 @@
-### 初始化React项目
-
 #### 1、路由配置
 
-> 约定：组件统一放在 `components`，页面放在 `pages`文件夹下
+> 约定：组件位于 `components`文件夹，页面位于 `pages`文件夹。
 
 > 通过 `createLoadableComp` 函数传入组件路径，路径以 `components` 或者 `pages` 开头，如：
 
